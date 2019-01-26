@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Stock Search Application</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+
+  <style type="text/css">
+    button,
+    img,h3,h6,p,
+    label,
+    form, 
+    input {
+      margin: 10px;
+    }
+
+    p {
+      border: 1px solid #cccccc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-9">
+        <h1>Stock Search</h1>
+
+        <!-- Rendered buttons will get dumped here  -->
+        <div id="buttons-view"></div>
+
+        <!-- stocks will get dumped Here -->
+        <div id="stocks-view"></div>
+      </div>
+
+      <div class="col-3">
+        <form id="stock-form">
+          <label for="stock-input">Enter a Stock Symbol</label>
+          <input type="text" id="stock-input">
+          <br>
+          <!-- Button triggers new stock to be added -->
+          <input id="add-stock" type="submit" value="Add">
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
