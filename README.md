@@ -1,1 +1,1 @@
-# StockSearchApp
+# StocksSearchApp

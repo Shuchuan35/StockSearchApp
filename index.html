@@ -13,29 +13,49 @@
     crossorigin="anonymous">
 
   <style type="text/css">
+    #buttons-view {
+      margin-bottom: 20px;
+    }
+    #stock-input {
+      width: 80%;
+    }
+    #stock-form {
+      text-align: center;
+    }
     button,
-    img,h3,h6,p,
+    img,
+    h3,
+    h6,
+    p,
     label,
-    form, 
+    form,
     input {
       margin: 10px;
     }
-
     p {
       border: 1px solid #cccccc;
+    }
+    h3, label {
+      color:#f36e30;
+    }
+    .col-3 {
+      margin-top: 20px;
+      padding-top: 100px;
+      padding-right: 20px;
+    }
+    .col-9 {
+      margin-top: 20px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <div class="container-fluid">
 
     <div class="row">
 
       <div class="col-9">
-        <h1>Stock Search</h1>
-
         <!-- Rendered buttons will get dumped here  -->
         <div id="buttons-view"></div>
 
@@ -49,7 +69,7 @@
           <input type="text" id="stock-input">
           <br>
           <!-- Button triggers new stock to be added -->
-          <input id="add-stock" type="submit" value="Add">
+          <input id="add-stock" class="btn btn-info" type="submit" value="Add">
         </form>
       </div>
 
