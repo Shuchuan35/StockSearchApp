@@ -20,17 +20,24 @@ $(document).ready(function () {
 
   // displaystockInfo function renders the HTML to display the selected company content
   const displayStockInfo = function () {
+    $('#ceo-view').empty();
     $('#stocks-view').empty();
     const stock = $(this).attr('data-name');
     // Grab the stock symbol from the button clicked and add it to the queryURL
-    const queryURL = `https://api.iextrading.com/1.0/stock/${stock}/batch?types=logo,quote,news&range=1m&last=10`;
+    const queryURL = `https://api.iextrading.com/1.0/stock/${stock}/batch?types=logo,company,quote,news&range=1m&last=10`;
 
     $.ajax({
       url: queryURL,
       method: 'GET'
     }).then(function (response) {
-      const stockDiv = $('<div>').addClass('stock');
+      // Storing the CEO info
+      const ceoDiv = $('<div>');
+      const companyCEO = response.company.CEO;
+      const ceoHolder = $('<small>').text(`CEO: ${companyCEO}`);
+      ceoDiv.append(ceoHolder);
+      $('#ceo-view').append(ceoDiv);
       // Storing the company logo
+      const stockDiv = $('<div>').addClass('stock');
       const companyLogo = response.logo.url;
       const logoHolder = $(`<img src="${companyLogo}">`);
       stockDiv.append(logoHolder);
@@ -38,9 +45,16 @@ $(document).ready(function () {
       const companyName = response.quote.companyName;
       const nameHolder = $('<h3>').text(`${companyName}`);
       stockDiv.append(nameHolder);
-      // Storing the price
+      // Storing the price and change
       const stockPrice = response.quote.latestPrice;
-      const priceHolder = $('<h6>').text(`Price: $${stockPrice}`);
+      const change = response.quote.change;
+      const priceHolder = $('<h6>').text(`Price: $${stockPrice} `);
+      if (parseFloat(change) >= 0) {
+        priceHolder.append(`<span id="change" style="color:green">  +${change}</span>`);
+      } else {
+        priceHolder.append(`<span id="change" style="color:red">  ${change}</span>`);
+      }
+      priceHolder.append(`<small>(IEX real-time price)</small>`);
       stockDiv.append(priceHolder);
       // Storing the 10 news summary
       for (let i = 0; i < response.news.length; i++) {
@@ -74,17 +88,17 @@ $(document).ready(function () {
   }
 
   const isValidSymbol = function (stock) {
-      if (validationList.includes(stock)) {
-        return true;
-      } else {
-        return false;
-      }
+    if (validationList.includes(stock)) {
+      return true;
+    } else {
+      return false;
+    }
   }
   // This function handles events when add stock button is clicked
   const addButton = function (e) {
     e.preventDefault();
     const stock = $('#stock-input').val().trim().toUpperCase();
-    
+
     if (isValidSymbol(stock) && !inStocsList(stock)) {
       stocksList.push(stock);
       render();

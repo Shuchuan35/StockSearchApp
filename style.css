@@ -1,0 +1,37 @@
+button,
+  img,
+  h3,
+  h6,
+  small,
+  label,
+  form,
+  input {
+    margin: 10px;
+  }
+  p {
+    margin: 10px 0 20px 10px;
+    border-bottom: 1px solid #cccccc;
+  }
+  h3, label {
+    color:#f36e30;
+  }
+  .col-3 {
+    margin-top: 20px;
+    padding-top: 100px;
+    padding-right: 20px;
+  }
+  .col-9 {
+    margin-top: 20px;
+  }
+  #buttons-view {
+    margin-bottom: 20px;
+  }
+  #stock-input {
+    width: 82%;
+  }
+  #stock-form {
+    text-align: center;
+  }
+  #change {
+      font-size: 16px;
+  }
