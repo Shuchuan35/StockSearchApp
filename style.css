@@ -9,8 +9,8 @@ button,
     margin: 10px;
   }
   p {
-    margin: 10px 0 20px 10px;
-    border-bottom: 1px solid #cccccc;
+    padding: 10px 0 20px 10px;
+    background-color: #f6f6f6;
   }
   h3, label {
     color:#f36e30;

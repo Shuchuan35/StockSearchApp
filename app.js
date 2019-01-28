@@ -80,11 +80,8 @@ $(document).ready(function () {
   }
 
   const inStocsList = function (stock) {
-    if (stocksList.includes(stock)) {
-      return true;
-    } else {
-      return false;
-    }
+    let result = (stocksList.includes(stock)) ? true : false;
+    return result;
   }
 
   const isValidSymbol = function (stock) {
