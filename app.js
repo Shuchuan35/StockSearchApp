@@ -4,9 +4,7 @@ $(document).ready(function () {
 
   // create an array for all stock symbols available in iexTrading
   const getAllStockSymbols = function () {
-
     const allSymbols = 'https://api.iextrading.com/1.0/ref-data/symbols#';
-
     $.ajax({
       url: `${allSymbols}`,
       method: 'GET'
@@ -15,14 +13,12 @@ $(document).ready(function () {
         validationList.push(response[i].symbol);
       }
     });
-
   }
   getAllStockSymbols();
 
   // display all the symbol buttons
   const render = function () {
     $('#buttons-view').empty();
-
     for (let i = 0; i < stocksList.length; i++) {
       const newButton = $('<button class="btn btn-info">');
       newButton.addClass('stock-btn');
@@ -85,7 +81,7 @@ $(document).ready(function () {
   }
 
   const storeNews = function (stockDiv, news) {
-    console.log(news);
+    // console.log(news);
     for (let i = 0; i < news.length; i++) {
       const headline = news[i].headline;
       const companyNews = news[i].summary;
