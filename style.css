@@ -8,9 +8,10 @@ button,
   input {
     margin: 10px;
   }
-  p {
+  .news {
     padding: 10px 0 20px 10px;
     background-color: #f6f6f6;
+    margin-block-end: 10px;
   }
   h3, label {
     color:#f36e30;
