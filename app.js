@@ -61,7 +61,7 @@ $(document).ready(function () {
     const stockDiv = $('<div>').addClass('stock')
       .append(
         $('<img>').attr('src', response.logo.url),
-        $('<3>').text(response.quote.companyName),
+        $('<h3>').text(response.quote.companyName),
         displayPrice(response.quote.latestPrice, response.quote.change)
       );
 
