@@ -36,3 +36,8 @@ button,
   #change {
       font-size: 16px;
   }
+
+  #stocks-view {
+    overflow-y: scroll;
+    height: 650px;
+  }
